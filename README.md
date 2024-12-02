@@ -75,7 +75,7 @@ Implementa búsqueda por nombre en el endpoint GET /posts/search para que los us
 ## Estructura del Proyecto 📂
 
 📂Red-social-backend/
-📂controllers/
+- 📂controllers/
 - postController.js
 - userController.js
 - commentController.js
@@ -83,14 +83,14 @@ Implementa búsqueda por nombre en el endpoint GET /posts/search para que los us
 - Post.js
 - User.js
 - Comment.js
-📂routes/
+- 📂routes/
 - postRoutes.js
 - userRoutes.js
 - commentRoutes.js
-📂middlewares/
+- 📂middlewares/
 - authMiddleware.js
 - postAuthorizationMiddleware.js
-📂.env
+- 📂.env
 - index.js
 - README.md
 
