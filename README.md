@@ -75,28 +75,24 @@ Implementa búsqueda por nombre en el endpoint GET /posts/search para que los us
 ## Estructura del Proyecto 📂
 
 📂Red-social-backend/
-├── 📂controllers/
-│   ├── postController.js
-│   ├── userController.js
-│   └── commentController.js
-│
-├── 📂models/
-│   ├── Post.js
-│   ├── User.js
-│   └── Comment.js
-│
-├── 📂routes/
-│   ├── postRoutes.js
-│   ├── userRoutes.js
-│   └── commentRoutes.js
-│
-├── 📂middlewares/
-│   ├── authMiddleware.js
-│   └── postAuthorizationMiddleware.js
-│
-├── 📂.env
-├── index.js
-└── README.md
+📂controllers/
+- postController.js
+- userController.js
+- commentController.js
+-📂models/
+- Post.js
+- User.js
+- Comment.js
+📂routes/
+- postRoutes.js
+- userRoutes.js
+- commentRoutes.js
+📂middlewares/
+- authMiddleware.js
+- postAuthorizationMiddleware.js
+📂.env
+- index.js
+- README.md
 
 # Conclusión 🎯
 Este proyecto es una excelente manera de aprender y aplicar Node.js, Express, MongoDB, y la autenticación basada en JWT. A lo largo de este proyecto, tendrás la oportunidad de crear una API RESTful robusta que puede ser utilizada como base para una red social o cualquier aplicación que necesite gestionar usuarios, posts y comentarios.
