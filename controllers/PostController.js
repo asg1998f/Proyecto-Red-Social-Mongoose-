@@ -8,7 +8,7 @@ const PostContoller = {
         } catch (error) {
             res.status(500).send({message:"There was a problem"})    
         }
-    }
+    },
 }
 
 module.exports = PostController
