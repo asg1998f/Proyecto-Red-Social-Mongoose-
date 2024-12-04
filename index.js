@@ -5,7 +5,7 @@ const { dbConnection } = require("./config/config")
 
 app.use(express.json())
 
-app.use("/posts")
+app.use("/posts",require("./routes/posts"))
 
 dbConnection()
 
