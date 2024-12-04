@@ -1,21 +1,26 @@
-// const createPost = async (req, res) => {
-//     const { title, content, image } = req.body;
-  
-//     if (!title || !content) {
-//       return res.status(400).json({ message: 'Title and content are required' });
-//     }
-  
-//     try {
-//       const post = new Post({
-//         title,
-//         content,
-//         image,
-//         user: req.user.id, 
-//       });
-//       await post.save();
-//       res.status(201).json(post);
-//     } catch (error) {
-//       res.status(500).json({ message: 'Error creating post', error });
-//     }
-//   };
-  
+const Post = require("../models/Post");
+
+const PostController = {
+    async create(req,res){
+        try {
+            const post = await Post.create(req.body)
+            res.status(201).send({message:"New post successfully created",post})
+        } catch (error) {
+            res.status(500).send({message:"There was a problem"})    
+        }
+    },
+    async update(req, res) {
+        try {
+          const post = await Post.findByIdAndUpdate(
+            req.params._id, 
+            req.body,
+            { new: true }
+        )
+          res.send({ message: "Post successfully updated", post });
+        } catch (error) {
+          console.error(error);
+        }
+      },
+}
+
+module.exports = PostController
