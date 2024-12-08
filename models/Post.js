@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const User = require('./User');
+const { Types } = mongoose;
 
 const PostSchema = new mongoose.Schema(
     {
@@ -11,7 +13,8 @@ const PostSchema = new mongoose.Schema(
         required: [true, "Please, fill the content"],
     }, 
     likes: {
-        type: ObjectId,
+        type: Types.ObjectId,
+        ref: User,
     },
 },
     { timestamps: true }
