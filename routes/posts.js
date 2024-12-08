@@ -9,5 +9,7 @@ router.delete("/id/:_id",authentication,PostController.delete)
 router.get("/title/:title",PostController.getByTitle)
 router.get("/id/:_id",PostController.getById)
 router.get("/getAll",PostController.getAll)
+router.put("/like/:_id",authentication,PostController.like)
+router.put("/unlike/:_id",authentication,PostController.unlike)
 
 module.exports = router

@@ -10,6 +10,9 @@ const PostSchema = new mongoose.Schema(
         type: String,
         required: [true, "Please, fill the content"],
     }, 
+    likes: {
+        type: ObjectId,
+    },
 },
     { timestamps: true }
 );

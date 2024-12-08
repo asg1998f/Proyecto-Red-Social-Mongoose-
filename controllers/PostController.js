@@ -58,9 +58,50 @@ const PostController = {
           console.error(error);
         }
       },
-    
-
-    
+      async like(req, res) {
+        try {
+          const post = await Post.findByIdAndUpdate(
+            req.params._id,
+            { $push: { likes: req.user._id } },
+            { new: true }
+          );
+          res.send(post);
+        } catch (error) {
+          console.error(error);
+          res.status(500).send({ message: "There was a problem with your like" });
+        }
+      },  
+      async unlike(req, res) {
+        try {
+          const post = await Post.findByIdAndUpdate(
+            req.params._id,
+            { $pull: { likes: req.user._id } },
+            { new: true } 
+          );
+      
+          if (!post) {
+            return res.status(404).send({ message: "Post not found" });
+          }
+      
+          res.send(post);
+        } catch (error) {
+          console.error(error);
+          res.status(500).send({ message: "There was a problem with your unlike" });
+        }
+      },
+      async addComment(req, res) {
+        try {
+          const post = await Post.findByIdAndUpdate(
+            req.params._id,
+            { $push: { reviews: { comment:req.body.comment, userId: req.user._id } } },
+            { new: true }
+          );
+          res.send(post);
+        } catch (error) {
+          console.error(error);
+          res.status(500).send({ message: "There was a problem with your review" });
+        }
+      },
 }
 
 module.exports = PostController
