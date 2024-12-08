@@ -8,5 +8,6 @@ router.put("/id/:_id",authentication,PostController.update)
 router.delete("/id/:_id",authentication,PostController.delete)
 router.get("/title/:title",PostController.getByTitle)
 router.get("/id/:_id",PostController.getById)
+router.get("/getAll",PostController.getAll)
 
 module.exports = router
