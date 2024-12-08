@@ -43,7 +43,7 @@ const UserController = {
         return res.status(401).send({ message: "Contraseña incorrecta" });
       }
 
-      const token = jwt.sign({ _id: user._id }, jwt_secret, { expiresIn: "1d" });
+      const token = jwt.sign({ _id: user._id }, jwt_secret);
 
       if (user.tokens.length >= 5) user.tokens.shift(); 
       user.tokens.push(token);

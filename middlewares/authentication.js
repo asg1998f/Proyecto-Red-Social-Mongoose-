@@ -4,7 +4,7 @@ const { jwt_secret } = require('../config/keys.js');
 
 const authentication = async (req, res, next) => {
     try {
-      const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; // Bearer <token>
+      const token = req.headers.authorization && req.headers.authorization.split(' ')[1]; 
       if (!token) {
         return res.status(400).send({ message: 'Token no proporcionado' });
       }

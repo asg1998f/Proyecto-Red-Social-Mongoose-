@@ -30,6 +30,16 @@ const PostController = {
             res.status(500).send({ message: 'There was a problem trying to remove the post'})
         }
     },
+    async getByTitle(req, res) {
+        try {
+          const title = new RegExp(req.params.title, "i");
+          const posts = await Post.find({title});
+          res.send(posts);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    
 }
 
 module.exports = PostController
