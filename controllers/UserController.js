@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+require("dotenv").config()
+const jwt_secret = process.env.JWT_SECRET
 /* const { jwt_secret } = require("../config/keys.js"); */
 
 const UserController = {
@@ -50,10 +52,9 @@ const UserController = {
 
       await user.save();
 
-      res.send({ message: `Bienvenid@ ${user.name}`, token });
+      res.send({ message: `Bienvenid@ ${user.name}`, token ,user});
     } catch (error) {
-      console.error(error);
-      res.status(500).send({ message: "Error al iniciar sesión", error });
+      console.error(error);      res.status(500).send({ message: "Error al iniciar sesión", error });
     }
   },
 
