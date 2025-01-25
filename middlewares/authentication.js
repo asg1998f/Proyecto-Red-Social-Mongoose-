@@ -5,8 +5,9 @@ require("dotenv").config()
 const jwt_secret = process.env.JWT_SECRET
 
 const authentication = async(req, res, next) => {
-  try {
-      const token = req.headers.authorization;
+    try {
+        const token = req.headers.authorization;
+        console.log(token);
       const payload = jwt.verify(token, jwt_secret);
       const user = await User.findOne({ _id: payload._id, tokens: token });
       if (!user) {
